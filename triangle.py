@@ -29,6 +29,12 @@ while not glfw.window_should_close(window):
     glfw.poll_events()
     #wstawianie koloru tła do głównej pętli
     glClear(GL_COLOR_BUFFER_BIT)
+
+    ct = glfw.get_time()
+    glLoadIdentity()
+    glScale(abs(np.sin(ct)),abs(np.sin(ct)),1)
+    glRotatef(np.sin(ct)*45,0,0,1)
+    glTranslate(np.sin(ct),np.cos(ct),0)
     glDrawArrays(GL_TRIANGLES,0,3)
     glfw.swap_buffers(window)
 #terminate glfw
